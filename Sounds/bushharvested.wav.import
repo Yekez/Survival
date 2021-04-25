@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bushharvested.wav-4b99b9ddf2a1ef0c9c637bb10fb42682.sample"
+
+[deps]
+
+source_file="res://Sounds/bushharvested.wav"
+dest_files=[ "res://.import/bushharvested.wav-4b99b9ddf2a1ef0c9c637bb10fb42682.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

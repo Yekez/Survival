@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sounds/stonehit.wav" type="AudioStream" id=1]
+[ext_resource path="res://Sprites/Stone2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Stone3.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Rock.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 23.7928, 7.03638 )
+
+[node name="Rock" type="Area2D" groups=[
+"rock",
+]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2.8292, -7.0414 )
+shape = SubResource( 1 )
+
+[node name="Stone2" type="Sprite" parent="."]
+position = Vector2( 0, -4.5 )
+texture = ExtResource( 2 )
+
+[node name="Stone3" type="Sprite" parent="."]
+position = Vector2( 1.558, -5.5 )
+texture = ExtResource( 3 )
+
+[node name="stonecut" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+volume_db = -5.0

@@ -1,0 +1,299 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://tiletest.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Bush5.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Bush4.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Bush2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Bush3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Cloud2.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Background.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Cloud1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Cloud3.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Cloud5.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/ResourceSpawner.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites/seaweed2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/coral2.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/seaweed1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/coral1.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Table.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scripts/EnemySpawner.gd" type="Script" id=20]
+[ext_resource path="res://Sprites/Ship.png" type="Texture" id=21]
+[ext_resource path="res://Sounds/seashore.wav" type="AudioStream" id=22]
+[ext_resource path="res://Sprites/Tree1.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Tree3.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Tree2.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Bush1.png" type="Texture" id=26]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 0, 92, 44 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 21 )
+region = Rect2( 92, 0, 92, 44 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 21 )
+region = Rect2( 184, 0, 92, 44 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 21 )
+region = Rect2( 276, 0, 92, 44 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 21 )
+region = Rect2( 368, 0, 92, 44 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=7]
+resource_name = "shipwave"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.6, 4.9, 6.9, 10 ),
+"transitions": PoolRealArray( 1, 0.933033, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 2, 2 ), Vector2( -4, 0 ), Vector2( -1, 1 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 125.96, 31.5678 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 29.3855, 19.6581 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ResourceSpawner" parent="." instance=ExtResource( 13 )]
+
+[node name="Rock" parent="ResourceSpawner" instance=ExtResource( 18 )]
+position = Vector2( -1854.1, 0 )
+
+[node name="Rock2" parent="ResourceSpawner" instance=ExtResource( 18 )]
+position = Vector2( -1996.45, -0.25 )
+
+[node name="Rock3" parent="ResourceSpawner" instance=ExtResource( 18 )]
+position = Vector2( -985.5, 0.0377197 )
+
+[node name="Rock4" parent="ResourceSpawner" instance=ExtResource( 18 )]
+position = Vector2( -854.891, 0.264866 )
+
+[node name="Rock5" parent="ResourceSpawner" instance=ExtResource( 18 )]
+position = Vector2( -605, 0 )
+
+[node name="Rock6" parent="ResourceSpawner" instance=ExtResource( 18 )]
+position = Vector2( -353, 0 )
+
+[node name="Rock7" parent="ResourceSpawner" instance=ExtResource( 18 )]
+position = Vector2( -293.296, 0.380814 )
+
+[node name="Rock8" parent="ResourceSpawner" instance=ExtResource( 18 )]
+position = Vector2( -412.703, 0.380814 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -2118.64, -12.829 )
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Map"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 65, 65 )
+cell_custom_transform = Transform2D( 65, 0, 0, 65, 0, 0 )
+cell_tile_origin = 1
+centered_textures = true
+collision_layer = 5
+collision_mask = 5
+format = 1
+tile_data = PoolIntArray( 65493, 7, 0, 65494, 7, 0, 65495, 7, 0, 65496, 7, 0, 65497, 7, 0, 65498, 7, 0, 65499, 7, 0, 65500, 7, 0, 65501, 7, 0, 65502, 7, 0, 65503, 0, 0, 65504, 1, 0, 65505, 2, 0, 65506, 0, 0, 65507, 1, 0, 65508, 2, 0, 65509, 0, 0, 65510, 1, 0, 65511, 2, 0, 65512, 0, 0, 65513, 1, 0, 65514, 2, 0, 65515, 0, 0, 65516, 1, 0, 65517, 2, 0, 65518, 0, 0, 65519, 1, 0, 65520, 2, 0, 65521, 0, 0, 65522, 1, 0, 65523, 2, 0, 65524, 0, 0, 65525, 1, 0, 65526, 2, 0, 65527, 0, 0, 65528, 1, 0, 65529, 2, 0, 65530, 0, 0, 65531, 1, 0, 65532, 2, 0, 65533, 0, 0, 65534, 1, 0, 65535, 2, 0, 0, 6, 0, 1, 5, 0, 2, 6, 0, 3, 5, 0, 4, 6, 0, 5, 5, 0, 6, 6, 0, 7, 5, 0, 8, 6, 0, 9, 5, 0, 10, 6, 0, 11, 5, 0, 12, 6, 0, 13, 5, 0, 14, 6, 0, 15, 5, 0, 16, 6, 0, 17, 5, 0, 18, 6, 0, 19, 5, 0, 20, 6, 0, 21, 5, 0, 22, 6, 0, 23, 5, 0, 24, 6, 0, 25, 5, 0, 26, 6, 0, 27, 5, 0, 28, 6, 0, 29, 5, 0, 30, 6, 0, 31, 5, 0, 32, 6, 0, 33, 5, 0, 34, 6, 0, 35, 5, 0, 36, 6, 0, 37, 5, 0, 38, 6, 0, 39, 5, 0, 40, 6, 0, 41, 5, 0, 42, 6, 0, 43, 5, 0, 44, 6, 0, 45, 5, 0, 46, 6, 0, 47, 5, 0, 48, 6, 0, 49, 5, 0, 50, 6, 0, 51, 5, 0, 52, 6, 0, 53, 5, 0, 54, 6, 0, 55, 5, 0, 56, 6, 0, 57, 5, 0, 58, 6, 0, 59, 5, 0, 60, 6, 0, 61, 5, 0, 62, 6, 0, 63, 5, 0, 64, 6, 0, 65, 5, 0, 66, 6, 0, 67, 5, 0, 68, 6, 0, 69, 5, 0, 70, 6, 0, 71, 5, 0, 72, 3, 0, 73, 4, 0, 74, 3, 0, 75, 4, 0, 76, 3, 0, 77, 4, 0, 78, 3, 0, 79, 4, 0, 80, 3, 0, 81, 4, 0, 82, 3, 0, 83, 4, 0, 84, 3, 0, 85, 4, 0, 86, 3, 0, 87, 4, 0, 88, 3, 0, 89, 4, 0, 90, 3, 0, 91, 4, 0, 92, 3, 0, 93, 4, 0, 94, 3, 0, 95, 4, 0, 96, 3, 0, 97, 4, 0, 98, 3, 0, 99, 4, 0, 100, 3, 0, 101, 4, 0, 102, 3, 0, 103, 4, 0, 104, 3, 0, 105, 4, 0, 106, 3, 0, 107, 4, 0, 108, 3, 0, 109, 4, 0, 110, 3, 0, 111, 4, 0, 112, 3, 0, 113, 4, 0, 114, 3, 0, 115, 4, 0, 116, 3, 0, 117, 4, 0, 118, 3, 0, 119, 4, 0, 120, 3, 0, 121, 4, 0, 122, 3, 0, 123, 4, 0, 124, 3, 0, 125, 4, 0, 126, 3, 0, 127, 4, 0, 128, 3, 0, 129, 4, 0, 130, 3, 0, 131, 4, 0, 132, 3, 0, 133, 4, 0, 134, 3, 0, 135, 4, 0, 136, 3, 0, 137, 4, 0, 138, 3, 0, 139, 4, 0, 140, 3, 0, 141, 4, 0, 142, 3, 0, 143, 4, 0, 144, 3, 0, 145, 4, 0, 146, 3, 0, 147, 4, 0, 148, 3, 0, 149, 4, 0, 150, 3, 0, 151, 4, 0, 152, 3, 0, 153, 4, 0, 154, 3, 0, 155, 4, 0, 156, 3, 0, 157, 4, 0, 158, 3, 0, 159, 4, 0, 160, 3, 0, 161, 4, 0 )
+
+[node name="seaweed1" type="Sprite" parent="Map/TileMap"]
+position = Vector2( -2177.91, 53.0908 )
+texture = ExtResource( 16 )
+
+[node name="seaweed2" type="Sprite" parent="Map/TileMap"]
+position = Vector2( -2202.3, 58.9771 )
+texture = ExtResource( 14 )
+
+[node name="Bush5" type="Sprite" parent="Map"]
+position = Vector2( 0.423965, 8.81278 )
+scale = Vector2( 3.20774, 4.72153 )
+texture = ExtResource( 4 )
+
+[node name="Bush4" type="Sprite" parent="Map/Bush5"]
+position = Vector2( -22.5738, 4.59114 )
+texture = ExtResource( 5 )
+
+[node name="Bush2" type="Sprite" parent="Map/Bush5/Bush4"]
+position = Vector2( 51.3519, -0.886652 )
+texture = ExtResource( 6 )
+
+[node name="Bush3" type="Sprite" parent="Map"]
+position = Vector2( 4697.65, 29.0919 )
+scale = Vector2( 2.07896, 2.6875 )
+texture = ExtResource( 7 )
+
+[node name="coral1" type="Sprite" parent="Map"]
+position = Vector2( -2231.07, 55.9313 )
+texture = ExtResource( 17 )
+
+[node name="coral2" type="Sprite" parent="Map"]
+position = Vector2( -2258.43, 57.2661 )
+texture = ExtResource( 15 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Back" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.01, 0.01 )
+motion_mirroring = Vector2( 800, 0 )
+
+[node name="Background" type="Sprite" parent="ParallaxBackground/Back"]
+texture = ExtResource( 9 )
+
+[node name="Cloud3" type="Sprite" parent="ParallaxBackground/Back"]
+position = Vector2( -135.598, -97.7275 )
+texture = ExtResource( 11 )
+
+[node name="Cloud4" type="Sprite" parent="ParallaxBackground/Back"]
+position = Vector2( 22.9819, -83.4731 )
+texture = ExtResource( 11 )
+
+[node name="Mid" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 800, 0 )
+
+[node name="Cloud5" type="Sprite" parent="ParallaxBackground/Mid"]
+position = Vector2( 163.776, -110.982 )
+texture = ExtResource( 12 )
+
+[node name="Cloud1" type="Sprite" parent="ParallaxBackground/Mid"]
+position = Vector2( -58.862, -101.667 )
+texture = ExtResource( 10 )
+
+[node name="Front" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 800, 0 )
+
+[node name="Cloud2" type="Sprite" parent="ParallaxBackground/Front"]
+position = Vector2( -97.0666, -117.968 )
+texture = ExtResource( 8 )
+
+[node name="Cloud3" type="Sprite" parent="ParallaxBackground/Front"]
+position = Vector2( 124.999, -113.208 )
+texture = ExtResource( 8 )
+
+[node name="Table" parent="." instance=ExtResource( 19 )]
+position = Vector2( -2084.37, -13.8924 )
+
+[node name="Ship" type="AnimatedSprite" parent="Table"]
+visible = false
+position = Vector2( -143.469, -6.13519 )
+frames = SubResource( 6 )
+offset = Vector2( -1.62833, 0.790555 )
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Table/Ship"]
+anims/shipwave = SubResource( 7 )
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource( 20 )
+
+[node name="Timer" type="Timer" parent="EnemySpawner"]
+wait_time = 10.0
+autostart = true
+
+[node name="SeaCheck" type="Area2D" parent="."]
+position = Vector2( -2019.02, -5.48402 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SeaCheck"]
+shape = SubResource( 8 )
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
+position = Vector2( -2152.81, -10.2374 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds"]
+position = Vector2( 10148.9, -9.71557 )
+shape = SubResource( 9 )
+
+[node name="Bush1" type="Sprite" parent="Bounds"]
+position = Vector2( 10200.9, -33.5577 )
+scale = Vector2( 3.33984, 4.00158 )
+texture = ExtResource( 26 )
+
+[node name="Bush3" type="Sprite" parent="Bounds/Bush1"]
+position = Vector2( 49.0193, -4.63305 )
+texture = ExtResource( 7 )
+
+[node name="Bush1" type="Sprite" parent="Bounds/Bush1/Bush3"]
+position = Vector2( -28.6702, -2.20399 )
+texture = ExtResource( 26 )
+
+[node name="Tree3" type="Sprite" parent="Bounds/Bush1/Bush3/Bush1"]
+position = Vector2( -4.36523, -13.0632 )
+texture = ExtResource( 24 )
+
+[node name="Tree2" type="Sprite" parent="Bounds/Bush1/Bush3/Bush1/Tree3"]
+position = Vector2( 45.6465, -4.72284 )
+texture = ExtResource( 25 )
+
+[node name="Tree1" type="Sprite" parent="Bounds/Bush1/Bush3/Bush1/Tree3/Tree2"]
+position = Vector2( -31.311, 7.55654 )
+texture = ExtResource( 23 )
+
+[node name="Bush5" type="Sprite" parent="Bounds/Bush1/Bush3/Bush1/Tree3/Tree2/Tree1"]
+position = Vector2( 3.01782, 13.5388 )
+texture = ExtResource( 4 )
+
+[node name="Bush4" type="Sprite" parent="Bounds/Bush1/Bush3/Bush1/Tree3/Tree2/Tree1/Bush5"]
+position = Vector2( 39.9871, -2.36143 )
+scale = Vector2( 1.45808, 1.86061 )
+texture = ExtResource( 5 )
+
+[node name="FishingArea" type="Area2D" parent="."]
+position = Vector2( -2130.43, -10.1022 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishingArea"]
+shape = SubResource( 10 )
+
+[node name="AmbientSFX" type="Node2D" parent="."]
+
+[node name="Sea" type="AudioStreamPlayer2D" parent="AmbientSFX"]
+position = Vector2( -2284.75, -9.60263 )
+stream = ExtResource( 22 )
+volume_db = -5.0
+autoplay = true
+attenuation = 1.51572
+
+[node name="SeaTimer" type="Timer" parent="AmbientSFX"]
+wait_time = 8.0
+autostart = true
+[connection signal="animation_finished" from="Table/Ship/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished" flags=3]
+[connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_Timer_timeout" flags=3]
+[connection signal="body_entered" from="SeaCheck" to="." method="_on_SeaCheck_body_entered" flags=3]
+[connection signal="body_exited" from="SeaCheck" to="." method="_on_SeaCheck_body_exited" flags=3]
+[connection signal="body_entered" from="FishingArea" to="." method="_on_FishingArea_body_entered" flags=3]
+[connection signal="body_exited" from="FishingArea" to="." method="_on_FishingArea_body_exited" flags=3]
+[connection signal="timeout" from="AmbientSFX/SeaTimer" to="." method="_on_SeaTimer_timeout" flags=3]

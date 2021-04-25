@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tookhit.wav-9a564931f28d5ea8d7633eb87152dba8.sample"
+
+[deps]
+
+source_file="res://Sounds/tookhit.wav"
+dest_files=[ "res://.import/tookhit.wav-9a564931f28d5ea8d7633eb87152dba8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

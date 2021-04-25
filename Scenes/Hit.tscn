@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Hit.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2.16629, 2.16855 )
+
+[node name="Hit" type="Area2D" groups=[
+"hit",
+]]
+collision_layer = 4098
+collision_mask = 4099
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+[connection signal="area_entered" from="." to="." method="_on_Hit_area_entered" flags=3]
+[connection signal="body_entered" from="." to="." method="_on_Hit_body_entered" flags=3]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout" flags=3]

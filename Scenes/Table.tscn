@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Table.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Table.png" type="Texture" id=2]
+
+[node name="Table" type="TouchScreenButton"]
+visible = false
+modulate = Color( 0.785156, 0.785156, 0.785156, 1 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 2 )
+script = ExtResource( 1 )
+[connection signal="pressed" from="." to="." method="_on_Table_pressed"]

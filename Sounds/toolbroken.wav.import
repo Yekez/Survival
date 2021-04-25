@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/toolbroken.wav-e61392833afb6baf7c87a5197944049c.sample"
+
+[deps]
+
+source_file="res://Sounds/toolbroken.wav"
+dest_files=[ "res://.import/toolbroken.wav-e61392833afb6baf7c87a5197944049c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,1018 @@
+[gd_scene load_steps=120 format=2]
+
+[ext_resource path="res://Sprites/PlayerRun.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/PlayerIdle.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/PlayerWakeup.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/PlayerSpearAttack.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/PlayerAxeAttack.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/inventory.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/PlayerNormalAttack.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/PlayerFishing.png" type="Texture" id=9]
+[ext_resource path="res://Sounds/treeharvested.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sprites/RodIcon.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/WoodIcon.png" type="Texture" id=12]
+[ext_resource path="res://Fonts/Minecraft.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Sprites/AxeIcon.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/SpearIcon.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/FiberIcon.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/MeatIcon.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/FishIcon.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/RopeIcon.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/PlankIcon.png" type="Texture" id=20]
+[ext_resource path="res://Sounds/stoneharvested.wav" type="AudioStream" id=21]
+[ext_resource path="res://Sprites/StoneIcon.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Table.png" type="Texture" id=23]
+[ext_resource path="res://Sounds/bushharvested.wav" type="AudioStream" id=24]
+[ext_resource path="res://Sounds/toolbroken.wav" type="AudioStream" id=25]
+[ext_resource path="res://Sounds/tookhit.wav" type="AudioStream" id=26]
+[ext_resource path="res://Sprites/HPbar.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/HungerBar.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/ShipParts/Hull3.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/ShipParts/Hull4.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/ShipParts/Hull1.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/ShipParts/Hull5.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/ShipParts/Hull2.png" type="Texture" id=33]
+[ext_resource path="res://Sounds/gameover.wav" type="AudioStream" id=34]
+[ext_resource path="res://Sounds/victory.wav" type="AudioStream" id=35]
+[ext_resource path="res://Sounds/music2.wav" type="AudioStream" id=36]
+[ext_resource path="res://Sounds/music3.wav" type="AudioStream" id=37]
+[ext_resource path="res://Sounds/music1.wav" type="AudioStream" id=38]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=82]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=83]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="DynamicFont" id=7]
+size = 12
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = 1
+extra_spacing_char = 2
+extra_spacing_space = 2
+font_data = ExtResource( 13 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.45098, 0.341176, 0.0666667, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.854902, 0.647059, 0.12549, 1 )
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 8
+
+[sub_resource type="DynamicFont" id=9]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 13 )
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="DynamicFont" id=13]
+size = 10
+outline_size = 1
+outline_color = Color( 0.00784314, 0.00392157, 0.00392157, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 13 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.760784, 0.666667, 0.427451, 1 )
+border_width_left = 2
+border_width_top = 2
+border_color = Color( 0.854902, 0.647059, 0.12549, 1 )
+border_blend = true
+shadow_color = Color( 0.027451, 0, 0, 0.6 )
+shadow_size = 1
+
+[sub_resource type="DynamicFont" id=15]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 13 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.760784, 0.666667, 0.427451, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
+[sub_resource type="StyleBoxEmpty" id=19]
+
+[sub_resource type="DynamicFont" id=20]
+size = 13
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = -1
+extra_spacing_char = 1
+font_data = ExtResource( 13 )
+
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0.815686, 0.0196078, 0.0196078, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=22]
+
+[sub_resource type="DynamicFont" id=23]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 13 )
+
+[sub_resource type="StyleBoxFlat" id=24]
+bg_color = Color( 0.235294, 0.631373, 0.0117647, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=25]
+
+[sub_resource type="DynamicFont" id=26]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 13 )
+
+[sub_resource type="Animation" id=27]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameOverText:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.6, 2.1, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TryAgain:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( -0.4, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=28]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 13 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 27, 31 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 8 )
+region = Rect2( 27, 0, 27, 31 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 8 )
+region = Rect2( 54, 0, 27, 31 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 8 )
+region = Rect2( 81, 0, 27, 31 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 8 )
+region = Rect2( 108, 0, 27, 31 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 3 )
+region = Rect2( 35, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 3 )
+region = Rect2( 70, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 3 )
+region = Rect2( 105, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 3 )
+region = Rect2( 140, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 3 )
+region = Rect2( 175, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 3 )
+region = Rect2( 210, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 3 )
+region = Rect2( 245, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 3 )
+region = Rect2( 280, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 3 )
+region = Rect2( 315, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 3 )
+region = Rect2( 350, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 3 )
+region = Rect2( 385, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 3 )
+region = Rect2( 420, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 3 )
+region = Rect2( 455, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 3 )
+region = Rect2( 490, 0, 35, 30 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 2 )
+region = Rect2( 51, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 2 )
+region = Rect2( 102, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 2 )
+region = Rect2( 153, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=53]
+atlas = ExtResource( 2 )
+region = Rect2( 204, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 6 )
+region = Rect2( 51, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 6 )
+region = Rect2( 102, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 6 )
+region = Rect2( 153, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 6 )
+region = Rect2( 204, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 1 )
+region = Rect2( 51, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 1 )
+region = Rect2( 102, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 1 )
+region = Rect2( 153, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 1 )
+region = Rect2( 204, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 1 )
+region = Rect2( 255, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=65]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=66]
+atlas = ExtResource( 9 )
+region = Rect2( 51, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=67]
+atlas = ExtResource( 9 )
+region = Rect2( 102, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=68]
+atlas = ExtResource( 9 )
+region = Rect2( 153, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=69]
+atlas = ExtResource( 9 )
+region = Rect2( 204, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=70]
+atlas = ExtResource( 9 )
+region = Rect2( 255, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=71]
+atlas = ExtResource( 9 )
+region = Rect2( 306, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=72]
+atlas = ExtResource( 9 )
+region = Rect2( 357, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=73]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=74]
+atlas = ExtResource( 5 )
+region = Rect2( 51, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=75]
+atlas = ExtResource( 5 )
+region = Rect2( 102, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=76]
+atlas = ExtResource( 5 )
+region = Rect2( 153, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=77]
+atlas = ExtResource( 5 )
+region = Rect2( 204, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=78]
+atlas = ExtResource( 5 )
+region = Rect2( 255, 0, 51, 35 )
+
+[sub_resource type="AtlasTexture" id=79]
+atlas = ExtResource( 5 )
+region = Rect2( 306, 0, 51, 35 )
+
+[sub_resource type="SpriteFrames" id=80]
+animations = [ {
+"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ],
+"loop": false,
+"name": "NormalAttack",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ) ],
+"loop": false,
+"name": "Wake",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ) ],
+"loop": false,
+"name": "AxeAttack",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ) ],
+"loop": true,
+"name": "Fishing",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ) ],
+"loop": true,
+"name": "SpearAttack",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=81]
+extents = Vector2( 5.02697, 12.631 )
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+script = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0.890869, -58.5859 )
+z_index = -1
+z_as_relative = false
+smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+layer = 10
+
+[node name="Control" type="Control" parent="Camera2D/CanvasLayer"]
+anchor_left = 0.351
+anchor_top = 0.272
+anchor_right = 0.547
+anchor_bottom = 0.618
+margin_left = -176.798
+margin_top = -73.4652
+margin_right = 230.418
+margin_bottom = 101.115
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tools" type="ItemList" parent="Camera2D/CanvasLayer/Control"]
+visible = false
+anchor_left = 0.354
+anchor_top = 0.854
+anchor_right = 0.767
+anchor_bottom = 1.0
+margin_left = -15.4565
+margin_top = -17.4909
+margin_right = -15.4345
+margin_bottom = 8.38107
+custom_styles/cursor = SubResource( 1 )
+custom_styles/selected_focus = SubResource( 82 )
+custom_styles/bg_focus = SubResource( 3 )
+custom_styles/cursor_unfocused = SubResource( 4 )
+custom_styles/selected = SubResource( 83 )
+custom_styles/bg = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
+items = [ "Axe", ExtResource( 14 ), true, "Rod", ExtResource( 11 ), true, "Spear", ExtResource( 15 ), true ]
+allow_reselect = true
+auto_height = true
+same_column_width = true
+icon_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" type="Node2D" parent="Camera2D/CanvasLayer"]
+visible = false
+position = Vector2( 30.204, 0 )
+
+[node name="inventory" type="Sprite" parent="Camera2D/CanvasLayer/Inventory"]
+position = Vector2( 263.796, 111.5 )
+texture = ExtResource( 7 )
+
+[node name="Bag" type="Panel" parent="Camera2D/CanvasLayer/Inventory"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 127.0
+margin_top = 25.0
+margin_right = 377.0
+margin_bottom = 182.0
+custom_styles/panel = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Food" type="Sprite" parent="Camera2D/CanvasLayer/Inventory"]
+position = Vector2( 275.315, 44.2126 )
+texture = ExtResource( 17 )
+
+[node name="FishIcon" type="Sprite" parent="Camera2D/CanvasLayer/Inventory/Food"]
+show_behind_parent = true
+position = Vector2( 5.76678, 6.02942 )
+texture = ExtResource( 18 )
+
+[node name="foodcount" type="Label" parent="Camera2D/CanvasLayer/Inventory/Food"]
+anchor_left = 1.19
+anchor_right = 2.167
+anchor_bottom = 0.5
+margin_left = -26.2547
+margin_top = 3.78739
+margin_right = -10.7487
+margin_bottom = 48.2874
+custom_fonts/font = SubResource( 9 )
+text = "0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rope" type="Sprite" parent="Camera2D/CanvasLayer/Inventory"]
+position = Vector2( 192.129, 45.3882 )
+texture = ExtResource( 19 )
+
+[node name="ropecount" type="Label" parent="Camera2D/CanvasLayer/Inventory/Rope"]
+anchor_left = 1.651
+anchor_top = 0.065
+anchor_right = 1.651
+anchor_bottom = 0.065
+margin_left = -19.9412
+margin_top = 0.921779
+margin_right = 7.28884
+margin_bottom = 56.9218
+custom_fonts/font = SubResource( 9 )
+text = "0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stone" type="Sprite" parent="Camera2D/CanvasLayer/Inventory"]
+position = Vector2( 317.081, 46.7343 )
+texture = ExtResource( 22 )
+
+[node name="stonecount" type="Label" parent="Camera2D/CanvasLayer/Inventory/Stone"]
+anchor_left = 1.19
+anchor_right = 2.167
+anchor_bottom = 0.5
+margin_left = -23.2608
+margin_top = 1.26569
+margin_right = -7.75481
+margin_bottom = 46.2657
+custom_fonts/font = SubResource( 9 )
+text = "0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Plank" type="Sprite" parent="Camera2D/CanvasLayer/Inventory"]
+position = Vector2( 153.271, 47.2037 )
+texture = ExtResource( 20 )
+
+[node name="plankcount" type="Label" parent="Camera2D/CanvasLayer/Inventory/Plank"]
+anchor_left = 1.19
+anchor_right = 2.167
+anchor_bottom = 0.5
+margin_left = -38.1607
+margin_top = 0.796311
+margin_right = -22.6547
+margin_bottom = 43.7963
+custom_fonts/font = SubResource( 9 )
+text = "0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fiber" type="Sprite" parent="Camera2D/CanvasLayer/Inventory"]
+position = Vector2( 231.856, 47.2214 )
+texture = ExtResource( 16 )
+
+[node name="fibercount" type="Label" parent="Camera2D/CanvasLayer/Inventory/Fiber"]
+anchor_left = 1.19
+anchor_right = 2.167
+anchor_bottom = 0.5
+margin_left = -24.8456
+margin_top = 0.778646
+margin_right = -9.33959
+margin_bottom = 43.7786
+custom_fonts/font = SubResource( 9 )
+text = "0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wood" type="Sprite" parent="Camera2D/CanvasLayer/Inventory"]
+position = Vector2( 356.865, 45.5404 )
+texture = ExtResource( 12 )
+
+[node name="woodcount" type="Label" parent="Camera2D/CanvasLayer/Inventory/Wood"]
+anchor_left = 1.19
+anchor_right = 2.167
+anchor_bottom = 0.5
+margin_left = -22.6262
+margin_top = 3.02075
+margin_right = -7.12017
+margin_bottom = 46.0208
+custom_fonts/font = SubResource( 9 )
+text = "0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CraftingPanel" type="ItemList" parent="Camera2D/CanvasLayer/Inventory"]
+margin_left = 147.0
+margin_top = 75.0
+margin_right = 246.0
+margin_bottom = 169.0
+custom_styles/cursor = SubResource( 10 )
+custom_styles/selected_focus = SubResource( 11 )
+custom_styles/bg = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
+items = [ "Axe", ExtResource( 14 ), false, "Fishing Rod", ExtResource( 11 ), false, "Spear", ExtResource( 15 ), false, "Crafting Table", ExtResource( 23 ), false ]
+icon_scale = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TablePanel" type="ItemList" parent="Camera2D/CanvasLayer/Inventory"]
+visible = false
+margin_left = 146.0
+margin_top = 73.0
+margin_right = 246.0
+margin_bottom = 166.0
+custom_styles/cursor = SubResource( 10 )
+custom_styles/selected_focus = SubResource( 11 )
+custom_styles/bg = SubResource( 14 )
+custom_fonts/font = SubResource( 13 )
+items = [ "Plank", ExtResource( 20 ), false, "Rope", ExtResource( 19 ), false, "Base", ExtResource( 31 ), false, "Hull", ExtResource( 33 ), true, "Rudder", ExtResource( 29 ), true, "Frames", ExtResource( 30 ), true, "Roof", ExtResource( 32 ), true ]
+icon_scale = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Inventory"]
+anchor_left = 0.039
+anchor_top = 0.047
+anchor_right = 0.98
+anchor_bottom = 0.719
+margin_left = 280.354
+margin_top = 78.2322
+margin_right = 374.354
+margin_bottom = 92.2322
+custom_fonts/font = SubResource( 15 )
+text = "Click tools for info"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Camera2D/CanvasLayer/Inventory"]
+margin_left = 301.5
+margin_top = 126.5
+margin_right = 353.5
+margin_bottom = 157.5
+custom_styles/hover = SubResource( 16 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/focus = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
+custom_fonts/font = SubResource( 20 )
+action_mode = 0
+text = "CRAFT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogues" type="Node2D" parent="Camera2D/CanvasLayer"]
+position = Vector2( 198.023, 150.95 )
+
+[node name="Wake1" type="Label" parent="Camera2D/CanvasLayer/Dialogues"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 30.2731
+margin_top = -95.3002
+margin_right = 301.273
+margin_bottom = -63.3002
+custom_fonts/font = SubResource( 9 )
+text = "Ugh.. I don't know where I am..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wake2" type="Label" parent="Camera2D/CanvasLayer/Dialogues"]
+visible = false
+margin_left = -145.146
+margin_top = -45.0199
+margin_right = 125.854
+margin_bottom = 7.98026
+custom_fonts/font = SubResource( 9 )
+text = "I should find out where I am...
+( Arrow keys to move)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wake3" type="Label" parent="Camera2D/CanvasLayer/Dialogues"]
+visible = false
+margin_left = 84.2882
+margin_top = -98.8638
+margin_right = 355.288
+margin_bottom = -17.8638
+custom_fonts/font = SubResource( 9 )
+text = "That storm was terrible... 
+Looks like I am stranded here..
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wake4" type="Label" parent="Camera2D/CanvasLayer/Dialogues"]
+visible = false
+margin_left = -177.429
+margin_top = -48.8619
+margin_right = 93.5702
+margin_bottom = 60.1381
+custom_fonts/font = SubResource( 9 )
+text = "Maybe I can make myself a wooden 
+ship! I need to gather some resources
+first. (Spacebar to attack)
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wake5" type="Label" parent="Camera2D/CanvasLayer/Dialogues"]
+visible = false
+margin_left = -76.3492
+margin_top = -74.0164
+margin_right = 243.651
+margin_bottom = 34.9836
+custom_fonts/font = SubResource( 9 )
+text = "I can make some tools with these resources!
+('C' to craft tools)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Camera2D/CanvasLayer/Dialogues"]
+
+[node name="DialogueTimer" type="Timer" parent="Camera2D/CanvasLayer/Dialogues"]
+wait_time = 8.0
+autostart = true
+
+[node name="Stats" type="Node2D" parent="Camera2D/CanvasLayer"]
+
+[node name="HPbar" type="Sprite" parent="Camera2D/CanvasLayer/Stats"]
+position = Vector2( 72, 24 )
+texture = ExtResource( 27 )
+
+[node name="HP" type="ProgressBar" parent="Camera2D/CanvasLayer/Stats/HPbar"]
+show_behind_parent = true
+margin_left = -38.0
+margin_top = -1.0
+margin_right = 46.0
+margin_bottom = 11.0
+rect_scale = Vector2( 1.12028, 0.582668 )
+custom_styles/fg = SubResource( 21 )
+custom_styles/bg = SubResource( 22 )
+max_value = 10.0
+step = 1.0
+value = 10.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HPLabel" type="Label" parent="Camera2D/CanvasLayer/Stats/HPbar"]
+anchor_left = 0.039
+anchor_top = 0.047
+anchor_right = 0.98
+anchor_bottom = 0.719
+margin_left = 55.6469
+margin_top = -6.41547
+margin_right = 55.6649
+margin_bottom = 13.7845
+custom_fonts/font = SubResource( 23 )
+text = "10
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HungerBar" type="Sprite" parent="Camera2D/CanvasLayer/Stats"]
+position = Vector2( 73, 56 )
+texture = ExtResource( 28 )
+
+[node name="Hunger" type="ProgressBar" parent="Camera2D/CanvasLayer/Stats/HungerBar"]
+show_behind_parent = true
+margin_left = -31.1569
+margin_top = -2.88776
+margin_right = 52.8431
+margin_bottom = 9.11224
+rect_scale = Vector2( 1.02775, 0.407768 )
+custom_styles/fg = SubResource( 24 )
+custom_styles/bg = SubResource( 25 )
+step = 1.0
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HungerLabel" type="Label" parent="Camera2D/CanvasLayer/Stats/HungerBar"]
+anchor_left = 0.039
+anchor_top = 0.047
+anchor_right = 0.98
+anchor_bottom = 0.719
+margin_left = 54.1951
+margin_top = -8.5826
+margin_right = 54.2131
+margin_bottom = 15.6494
+custom_fonts/font = SubResource( 26 )
+text = "100
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HungerTimer" type="Timer" parent="Camera2D/CanvasLayer/Stats/HungerBar"]
+wait_time = 5.0
+autostart = true
+
+[node name="Eat" type="Button" parent="Camera2D/CanvasLayer/Stats/HungerBar"]
+margin_left = -71.9861
+margin_top = 10.9367
+margin_right = -19.9861
+margin_bottom = 41.9367
+focus_mode = 0
+custom_styles/hover = SubResource( 16 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/focus = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
+custom_fonts/font = SubResource( 20 )
+action_mode = 0
+enabled_focus_mode = 0
+text = "EAT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SetSail" type="Button" parent="Camera2D/CanvasLayer"]
+visible = false
+margin_left = 228.798
+margin_top = 10.7852
+margin_right = 280.798
+margin_bottom = 41.7852
+focus_mode = 0
+custom_styles/hover = SubResource( 16 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/focus = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
+custom_fonts/font = SubResource( 20 )
+action_mode = 0
+enabled_focus_mode = 0
+text = "SET SAIL!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="ColorRect" parent="Camera2D/CanvasLayer"]
+visible = false
+margin_right = 504.0
+margin_bottom = 270.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverAnimaiton" type="AnimationPlayer" parent="Camera2D/CanvasLayer/GameOver"]
+anims/gameover = SubResource( 27 )
+
+[node name="GameOverText" type="Label" parent="Camera2D/CanvasLayer/GameOver"]
+margin_left = 201.623
+margin_top = 125.071
+margin_right = 307.623
+margin_bottom = 157.071
+custom_fonts/font = SubResource( 28 )
+text = "GAME OVER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TryAgain" type="Button" parent="Camera2D/CanvasLayer/GameOver"]
+margin_left = 381.125
+margin_top = 210.23
+margin_right = 446.125
+margin_bottom = 241.23
+focus_mode = 0
+custom_styles/hover = SubResource( 16 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/focus = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
+custom_fonts/font = SubResource( 20 )
+action_mode = 0
+enabled_focus_mode = 0
+text = "Try Again"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 80 )
+animation = "SpearAttack"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.066, 0.333 )
+shape = SubResource( 81 )
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="TreeHarvested" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 10 )
+
+[node name="RockHarvested" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 21 )
+
+[node name="BushHarvested" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 24 )
+
+[node name="ToolBroken" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 25 )
+
+[node name="TookHit" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 26 )
+
+[node name="GameOver" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 34 )
+
+[node name="Music1" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 38 )
+volume_db = -20.0
+
+[node name="Music2" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 36 )
+volume_db = -20.0
+
+[node name="Music3" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 37 )
+volume_db = -20.0
+
+[node name="Victory" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 35 )
+
+[node name="MusicTimer" type="Timer" parent="SFX"]
+wait_time = 60.0
+autostart = true
+[connection signal="item_selected" from="Camera2D/CanvasLayer/Control/Tools" to="." method="_on_Tools_item_selected" flags=3]
+[connection signal="item_selected" from="Camera2D/CanvasLayer/Inventory/CraftingPanel" to="." method="_on_CraftingPanel_item_selected" flags=3]
+[connection signal="item_selected" from="Camera2D/CanvasLayer/Inventory/TablePanel" to="." method="_on_TablePanel_item_selected" flags=3]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Inventory/Button" to="." method="_on_Button_pressed" flags=3]
+[connection signal="tween_completed" from="Camera2D/CanvasLayer/Dialogues/Tween" to="." method="_on_Tween_tween_completed" flags=7]
+[connection signal="timeout" from="Camera2D/CanvasLayer/Dialogues/DialogueTimer" to="." method="_on_DialogueTimer_timeout" flags=3]
+[connection signal="timeout" from="Camera2D/CanvasLayer/Stats/HungerBar/HungerTimer" to="." method="_on_HungerTimer_timeout" flags=3]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Stats/HungerBar/Eat" to="." method="_on_Eat_pressed" flags=3]
+[connection signal="pressed" from="Camera2D/CanvasLayer/SetSail" to="." method="_on_SetSail_pressed" flags=3]
+[connection signal="animation_finished" from="Camera2D/CanvasLayer/GameOver/GameOverAnimaiton" to="." method="_on_GameOverAnimaiton_animation_finished" flags=3]
+[connection signal="pressed" from="Camera2D/CanvasLayer/GameOver/TryAgain" to="." method="_on_TryAgain_pressed" flags=3]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished" flags=3]
+[connection signal="finished" from="SFX/GameOver" to="." method="_on_GameOver_finished" flags=3]
+[connection signal="finished" from="SFX/Victory" to="." method="_on_Victory_finished" flags=3]
+[connection signal="timeout" from="SFX/MusicTimer" to="." method="_on_MusicTimer_timeout" flags=3]
